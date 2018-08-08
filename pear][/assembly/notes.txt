@@ -1,0 +1,88 @@
+PASSES
+
+*1st Pass //need to know if we can compile the line
+
+//does the line have an instruction
+    //if not
+        //dont compile anything
+//if so
+
+//does the line have a tag
+    //is it preprocessor
+        //if so
+            //process tag
+        //if not
+            //store the tag so that it knows it be processed
+
+//does the line have a tag operand
+    //if so,
+        //is it defined
+    //if not
+        //we cant compile
+
+    process all prepro tags
+    compile all the lines we can
+    any line that we cant process a tag on whether it be an operand or just a instruction tag
+we add to a list
+
+*2nd Pass //need to know how big every instruction is
+//if the line was processed previously #no processing necessary
+//if the line utilizes preprocessor tags
+    //if so
+        //is the tag defined
+            //if so
+                //how big is its value
+    //if not
+        //if the instruction is a jump or branching #3 bytes or 2 bytes
+
+    iterate over the entire program adding to the program pointer
+    process all instruction tags
+    any unknown tag operands become 3 bytes if they are absolute and 2 bytes if they are branching
+
+*3rd Pass //need to know all unprocessed operands and have a complete symbol table
+//is the tag defined
+    //if so
+        //what is its value
+        //what is its type
+    //if not
+        //error
+
+    iterate over all lines with unprocessed operands
+    return an error on any lines that dont have a valid operand
+
+*4th Pass //need to know where the code should be written (size of all instructions and preprocessor commands that change write location)
+
+    final compilation with a counter pointer and a location pointer
+
+UTILS TO HAVE
+
+*tags
+
+    is tag defined
+    is tag preprocessor/is tag instruction
+    how big is the tags value
+
+*lines
+
+    is tag preprocessor
+
+    there is something to compile
+        tag is preprocessor
+            tag is defined
+    determine operand value
+        parse operand
+            eval all tags
+
+decode operand output
+
+1100 1111
+msb bit - unprocessed tag
+7th bit - no tag value
+lsn - id value
+
+
+
+
+
+
+
