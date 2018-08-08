@@ -44,7 +44,7 @@ typedef struct line {
 
 class assembler {
 public:
-    bool assembleToFile(char* outFile);
+    line* assemble(unsigned int* numTokens);
     assembler(unsigned int length, char* string);
 private:
     
@@ -57,7 +57,6 @@ private:
     tte processTag(line l, bool isDefined);
     bool isPreprocessor(line l);
     //main functions for generating binary
-    line* assemble(unsigned int* numTokens);
     void decodeOperand(line* l, bool* error);
     unsigned char getOpcode(char* instruction, unsigned char addr_mode_id, bool* error);
     //source files information

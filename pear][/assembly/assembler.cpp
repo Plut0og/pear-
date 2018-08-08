@@ -136,7 +136,6 @@ line* assembler::assemble(unsigned int* numTokens){
     bool hasOperand = true;
     run = 1;
     while(i < numLines){
-        printf("%i \n", run);
         cLine = &(lines[i]);
         cLine->isPreprocessor = false;
         cLine->p = nullptr;
@@ -206,7 +205,6 @@ line* assembler::assemble(unsigned int* numTokens){
     cAddr = 0x0800; //the default starting position for programs
     run = 2;
     while(i < numLines){
-        printf("%i \n", run);
         cLine = &(lines[i]);
         if(cLine->isPreprocessor){
             i++;
@@ -266,7 +264,6 @@ line* assembler::assemble(unsigned int* numTokens){
     i = 0;
     run = 3;
     while(i < numLines){
-        printf("%i \n", run);
         
         cLine = &(lines[i]);
         
